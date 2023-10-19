@@ -1,0 +1,45 @@
+﻿<Window x:Class="Лаб3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Лаб3"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Triangle" Height="300" Width="700">
+    <Window.DataContext>
+        <Binding RelativeSource="{RelativeSource Self}"></Binding>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="256*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Сторона A" VerticalAlignment="Top" IsEnabled="False" FontSize="24" Grid.Row="1" Height="32" Width="130" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Сторона B" VerticalAlignment="Top" IsEnabled="False" FontSize="24" Grid.Row="1" Height="32" Width="130" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,114,0,0" TextWrapping="Wrap" Text="Сторона C" VerticalAlignment="Top" IsEnabled="False" FontSize="24" Grid.Row="1" Height="32" Width="129" Grid.Column="2"/>
+        <TextBox x:Name="A" Grid.Column="2" HorizontalAlignment="Left" Height="33" Margin="140,14,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" FontSize="22"/>
+        <TextBox x:Name="B" Grid.Column="2" HorizontalAlignment="Left" Height="33" Margin="140,64,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" FontSize="22"/>
+        <TextBox x:Name="C" Grid.Column="2" HorizontalAlignment="Left" Height="33" Margin="140,113,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" FontSize="22"/>
+        <Button Click="Add" Content="Добавить" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,49" Grid.Row="1" VerticalAlignment="Bottom" Width="267" FontSize="24" Height="40"/>
+        <Button Click="Remove" Content="Удалить" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,4" Grid.Row="1" VerticalAlignment="Bottom" Width="267" FontSize="24" Height="40"/>
+        <DataGrid x:Name="TrianglesGrid" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding triangles}" HorizontalAlignment="Left" Height="244" Margin="5,0,0,4" Grid.Row="1" VerticalAlignment="Bottom" Width="385" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" FontSize="14"  Binding="{Binding ID}" Width="50" ></DataGridTextColumn>
+                <DataGridTextColumn Header="A" FontSize="14"  Binding="{Binding Length_A}" Width="60"></DataGridTextColumn>
+                <DataGridTextColumn Header="B" FontSize="14"  Binding="{Binding Length_B}" Width="60"></DataGridTextColumn>
+                <DataGridTextColumn Header="C" FontSize="14"  Binding="{Binding Length_C}" Width="60"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип" FontSize="14"  Binding="{Binding Type_Triangle}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
